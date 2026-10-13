@@ -1,0 +1,871 @@
+/* ============================================================
+   R FRAGANCIAS — Estilos exclusivos del catálogo público (hero con
+   imagen de fondo, tarjetas editoriales, sección de contacto y
+   botones de WhatsApp). La paleta de colores vive en styles.css y
+   ya es la misma para todo el sitio (catálogo, login y admin).
+   ============================================================ */
+
+::selection {
+  background: var(--color-primary);
+  color: #1a1305;
+}
+
+/* ---------- Barra superior ---------- */
+
+.topbar {
+  background: rgba(13, 12, 10, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.topbar-tag {
+  display: none; /* reemplazada por el botón de WhatsApp en este tema */
+}
+
+.brand-name {
+  color: var(--color-text);
+}
+
+/* Botón "Mi selección" (carrito) */
+.btn-carrito {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  background: transparent;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.btn-carrito:hover {
+  background: var(--color-primary);
+  color: #1a1305;
+}
+
+.btn-carrito svg {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+}
+
+.contador-carrito {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: #1a1305;
+  font-size: 0.68rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 560px) {
+  .btn-carrito span:not(.contador-carrito) { display: none; }
+  .btn-carrito { padding: 10px; }
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  padding: 130px 0 100px;
+  border-bottom: 1px solid var(--color-border);
+  text-align: center;
+  overflow: hidden;
+  background: #14110D url("../assets/hero-bg.jpg") center 38% / cover no-repeat;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(9,8,6,0.96) 0%, rgba(9,8,6,0.72) 42%, rgba(9,8,6,0.55) 100%);
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero .eyebrow {
+  display: inline-block;
+  color: var(--color-primary);
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-style: italic;
+  font-weight: 600;
+  max-width: 20ch;
+  margin: 0 auto;
+  color: #FBF6EC;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  text-shadow: 0 2px 24px rgba(0,0,0,0.35);
+}
+
+.hero p {
+  margin: 20px auto 0;
+  color: #E7DDCB;
+  max-width: 52ch;
+}
+
+@media (max-width: 640px) {
+  .hero { padding: 88px 0 64px; background-position: 62% center; }
+}
+
+/* ---------- Filtros ---------- */
+
+.filtros {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin: 8px 0 40px;
+}
+
+.campo-busqueda input {
+  background: var(--color-bg-alt);
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.campo-busqueda input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.pildora {
+  background: var(--color-bg-alt);
+  border-color: var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.pildora:hover {
+  border-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.pildora.activa {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #1a1305;
+  font-weight: 600;
+}
+
+/* ---------- Tarjetas de perfume (estilo editorial, imagen a sangre) ---------- */
+
+.grid-perfumes {
+  padding-top: 0;
+}
+
+.tarjeta-perfume {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  position: relative;
+  aspect-ratio: 3 / 4;
+}
+
+.tarjeta-perfume:hover {
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.45);
+}
+
+.tarjeta-perfume .imagen {
+  position: absolute;
+  inset: 0;
+  aspect-ratio: auto;
+  background: linear-gradient(150deg, #23201A, #14110D);
+}
+
+.tarjeta-perfume .imagen img {
+  transition: transform 0.4s ease;
+}
+
+.tarjeta-perfume:hover .imagen img {
+  transform: scale(1.045);
+}
+
+.tarjeta-perfume .imagen svg {
+  width: 30%;
+  color: var(--color-primary);
+  opacity: 0.35;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+}
+
+.tarjeta-perfume::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(9,8,6,0.94) 0%, rgba(9,8,6,0.55) 38%, rgba(9,8,6,0) 62%);
+  pointer-events: none;
+}
+
+.tarjeta-perfume .info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 22px 20px;
+  z-index: 2;
+  gap: 6px;
+}
+
+.tarjeta-perfume h3 {
+  color: #fff;
+  font-style: italic;
+}
+
+.tarjeta-perfume .disenador {
+  color: var(--color-primary);
+  order: -1;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.etiqueta-genero {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 3;
+  background: rgba(13, 12, 10, 0.7);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(244, 238, 226, 0.25);
+  color: #F4EEE2 !important;
+}
+
+.acciones-tarjeta {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 3;
+  display: flex;
+  gap: 8px;
+}
+
+.acciones-tarjeta .boton-circular {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(13, 12, 10, 0.7);
+  border: 1px solid rgba(244, 238, 226, 0.25);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.acciones-tarjeta .boton-circular svg {
+  width: 18px;
+  height: 18px;
+}
+
+.acciones-tarjeta .boton-circular:hover {
+  transform: scale(1.06);
+}
+
+.consultar-perfume {
+  color: var(--color-whatsapp);
+}
+
+.consultar-perfume:hover {
+  background: var(--color-whatsapp);
+  color: #0D0C0A;
+}
+
+.accion-carrito {
+  color: #F4EEE2;
+}
+
+.accion-carrito:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.accion-carrito.activo {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #1a1305;
+}
+
+.notas-perfume {
+  border-top: 1px solid rgba(244, 238, 226, 0.16);
+  color: var(--color-text-muted);
+}
+
+.notas-perfume span {
+  color: var(--color-text);
+}
+
+.estado-vacio {
+  color: var(--color-text-muted);
+}
+
+.estado-vacio h3 {
+  color: var(--color-text);
+}
+
+/* ---------- Sección de contacto ---------- */
+
+.contacto {
+  padding: 20px 0 84px;
+}
+
+.contacto-tarjeta {
+  background: linear-gradient(135deg, var(--color-surface), var(--color-bg-alt));
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 56px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.contacto-tarjeta::before {
+  content: "";
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-primary-soft), transparent 70%);
+  top: -160px;
+  right: -100px;
+}
+
+.contacto-tarjeta .eyebrow {
+  display: block;
+  color: var(--color-primary);
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.contacto-tarjeta h2 {
+  font-style: italic;
+  color: var(--color-text);
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  max-width: 24ch;
+  margin: 0 auto;
+  position: relative;
+}
+
+.contacto-tarjeta p {
+  color: var(--color-text-muted);
+  max-width: 46ch;
+  margin: 16px auto 30px;
+  position: relative;
+}
+
+.btn-whatsapp-grande {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: #1a1305;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  position: relative;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.btn-whatsapp-grande:hover {
+  background: #F0AE5E;
+  transform: translateY(-1px);
+}
+
+.btn-whatsapp-grande svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* ---------- Botón flotante de WhatsApp ---------- */
+
+.whatsapp-flotante {
+  position: fixed;
+  bottom: 26px;
+  right: 26px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--color-whatsapp);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.4);
+  z-index: 50;
+  text-decoration: none;
+  transition: transform 0.18s ease;
+}
+
+.whatsapp-flotante:hover {
+  transform: scale(1.08);
+}
+
+.whatsapp-flotante svg {
+  width: 30px;
+  height: 30px;
+  color: #0D0C0A;
+}
+
+/* ---------- Pie de página ---------- */
+
+.pie {
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.pie a {
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 640px) {
+  .contacto-tarjeta { padding: 40px 22px; }
+  .whatsapp-flotante { width: 52px; height: 52px; bottom: 18px; right: 18px; }
+
+  .grid-perfumes {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .tarjeta-perfume {
+    aspect-ratio: 3 / 4.6;
+  }
+
+  .tarjeta-perfume .info {
+    padding: 8px 7px;
+    gap: 2px;
+  }
+
+  .tarjeta-perfume h3 {
+    font-size: 0.8rem;
+    line-height: 1.15;
+  }
+
+  .tarjeta-perfume .disenador {
+    font-size: 0.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .notas-perfume {
+    font-size: 0.62rem;
+    line-height: 1.25;
+    padding-top: 2px;
+    /* en 3 columnas solo cabe 1 línea de descripción sin que crezca la tarjeta */
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .etiqueta-genero {
+    top: 6px;
+    left: 6px;
+    padding: 1px 6px;
+    font-size: 0.52rem;
+  }
+
+  .acciones-tarjeta {
+    top: 6px;
+    right: 6px;
+    gap: 4px;
+  }
+
+  .acciones-tarjeta .boton-circular {
+    width: 24px;
+    height: 24px;
+  }
+
+  .acciones-tarjeta .boton-circular svg {
+    width: 11px;
+    height: 11px;
+  }
+}
+
+@media (max-width: 380px) {
+  .grid-perfumes {
+    gap: 6px;
+  }
+}
+
+/* ---------- Panel del carrito de selección ---------- */
+
+.overlay-carrito {
+  position: fixed;
+  inset: 0;
+  background: rgba(9, 8, 6, 0.6);
+  display: none;
+  align-items: stretch;
+  justify-content: flex-end;
+  z-index: 200;
+}
+
+.overlay-carrito.activo {
+  display: flex;
+}
+
+.panel-carrito {
+  width: 100%;
+  max-width: 420px;
+  height: 100%;
+  background: var(--color-surface);
+  border-left: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-carrito-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 24px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.panel-carrito-header h2 {
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--color-text);
+}
+
+.cerrar-carrito {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.cerrar-carrito:hover {
+  color: var(--color-text);
+}
+
+.panel-carrito-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 24px;
+}
+
+.item-carrito {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.item-carrito-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.item-carrito-info .nombre {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--color-text);
+}
+
+.item-carrito-info .disenador {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-top: 2px;
+}
+
+.item-carrito-cantidad {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.item-carrito-cantidad button {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-carrito-cantidad button:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.item-carrito-cantidad span {
+  min-width: 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+
+.quitar-item-carrito {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 4px 6px;
+}
+
+.quitar-item-carrito:hover {
+  color: var(--color-danger);
+}
+
+.carrito-vacio {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: 60px 12px;
+}
+
+.carrito-vacio svg {
+  width: 42px;
+  height: 42px;
+  color: var(--color-primary);
+  opacity: 0.5;
+  margin-bottom: 14px;
+}
+
+.panel-carrito-footer {
+  padding: 18px 24px 24px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.panel-carrito-footer .btn-whatsapp-grande {
+  justify-content: center;
+  width: 100%;
+}
+
+.panel-carrito-footer.vacio #btn-vaciar-carrito,
+.panel-carrito-footer.vacio #btn-compartir-carrito {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .panel-carrito {
+    max-width: 100%;
+  }
+}
+
+/* ---------- Contador de resultados y centinela de scroll ---------- */
+
+.contador-resultados {
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+  margin: 4px 0 18px;
+}
+
+.centinela-scroll {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  padding: 24px 0 56px;
+  min-height: 1.2em;
+}
+
+/* ---------- Modal: elegir tamaño (50/100 ml) ---------- */
+
+.overlay-tamano {
+  position: fixed;
+  inset: 0;
+  background: rgba(9, 8, 6, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 210;
+  padding: 20px;
+}
+
+.overlay-tamano.activo {
+  display: flex;
+}
+
+.panel-tamano {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 30px 28px;
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
+}
+
+.panel-tamano-titulo {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.panel-tamano-nombre {
+  color: var(--color-primary);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  margin: 6px 0 22px;
+}
+
+.opciones-tamano {
+  display: flex;
+  gap: 12px;
+}
+
+.opciones-tamano button {
+  flex: 1;
+  padding: 16px 10px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.opciones-tamano button:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+  color: var(--color-primary-dark);
+}
+
+.cerrar-tamano {
+  margin-top: 18px;
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cerrar-tamano:hover {
+  color: var(--color-text);
+}
+
+/* ---------- Selector de tamaño dentro del panel del carrito ---------- */
+
+.selector-tamano-carrito {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.selector-tamano-carrito button {
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-alt);
+  color: var(--color-text-muted);
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+
+.selector-tamano-carrito button:hover {
+  border-color: var(--color-primary);
+}
+
+.selector-tamano-carrito button.activo {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #1a1305;
+  font-weight: 600;
+}
+
+/* ---------- Animación de bienvenida (splash) ---------- */
+
+.intro-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease;
+}
+
+.intro-splash.oculto {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.intro-splash-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.intro-splash-logo img {
+  height: 76px;
+  width: auto;
+  background: var(--color-text);
+  border-radius: 14px;
+  padding: 10px 16px;
+  animation: introLogoEntrada 900ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+.intro-splash-logo span {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.3rem;
+  letter-spacing: 0.12em;
+  color: var(--color-text);
+  animation: introTextoEntrada 700ms ease 250ms both;
+}
+
+@keyframes introLogoEntrada {
+  from { opacity: 0; transform: scale(0.78); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes introTextoEntrada {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-splash-logo img,
+  .intro-splash-logo span {
+    animation: none;
+  }
+}
